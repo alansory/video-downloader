@@ -5,7 +5,11 @@ import re
 import time
 import hmac
 import hashlib
+from dotenv import load_dotenv
+import os
 
+
+load_dotenv()  # Load environment variables from .env file
 app = Flask(__name__)
 
 # Storyblocks API configuration
@@ -126,6 +130,7 @@ def download_video():
                 'format_sort': ['+res', 'ext:mp4:m4a'],  # Prioritize resolution, prefer MP4
                 'quiet': True,
                 'no_warnings': True,
+                'cookiefile': os.getenv('COOKIE'),
             }
 
             try:
