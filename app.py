@@ -128,9 +128,11 @@ def download_video():
             
             ydl_opts = {
                 'format_sort': ['+res', 'ext:mp4:m4a'],  # Prioritize resolution, prefer MP4
-                'quiet': True,
-                'no_warnings': True,
+                'quiet': False,  # Set to False for debugging
+                'no_warnings': False,  # Enable warnings for debugging
                 'cookiefile': os.getenv('COOKIE'),
+                'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+                'verbose': True,  # Enable verbose output for debugging
             }
 
             try:
